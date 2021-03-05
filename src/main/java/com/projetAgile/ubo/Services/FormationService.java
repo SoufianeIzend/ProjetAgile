@@ -20,6 +20,13 @@ public class FormationService {
     public List<Formation> getAllFormations(){
         return formationRepository.findAll();
     }
+    public Formation getFormationById(String id){
+        return formationRepository.getOne(id);
+    }
+    
+    public Formation addFormation(Formation formation){
+        return formationRepository.save(formation);
+    }
 
 
 
