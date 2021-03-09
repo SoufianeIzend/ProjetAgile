@@ -15,8 +15,8 @@ public class Formation implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "CODE_FORMATION")
-    private String codeFormation;
+	@Column(name="CODE_FORMATION")
+	private String codeFormation;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "DEBUT_ACCREDITATION")
@@ -32,7 +32,7 @@ public class Formation implements Serializable {
     private Date finAccreditation;
 
     @Column(name = "N0_ANNEE")
-    private BigDecimal n0Annee;
+    private int n0Annee;
 
     @Column(name = "NOM_FORMATION")
     private String nomFormation;
@@ -42,9 +42,17 @@ public class Formation implements Serializable {
     
     
     
+    public Formation(String codeFormation,String doubleDiplome, Date debutAccreditation, Date finAccreditation, String diplome, int n0Annee, String nomFormation  ) {
+    	this.codeFormation=codeFormation;
+    	this.diplome=diplome;
+    	this.n0Annee=n0Annee;
+    	this.nomFormation=nomFormation;
+    	this.doubleDiplome=doubleDiplome;
+    	this.debutAccreditation=debutAccreditation;
+    	this.finAccreditation=finAccreditation;
+    }
     public Formation() {
     }
-
 
 
 	public String getCodeFormation() {
@@ -107,13 +115,13 @@ public class Formation implements Serializable {
 
 
 
-	public BigDecimal getN0Annee() {
+	public int getN0Annee() {
 		return n0Annee;
 	}
 
 
 
-	public void setN0Annee(BigDecimal n0Annee) {
+	public void setN0Annee(int n0Annee) {
 		this.n0Annee = n0Annee;
 	}
 

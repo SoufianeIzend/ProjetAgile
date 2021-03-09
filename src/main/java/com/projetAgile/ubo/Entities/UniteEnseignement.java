@@ -1,9 +1,12 @@
 package com.projetAgile.ubo.Entities;
 
 import lombok.Data;
-
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -35,14 +38,14 @@ public class UniteEnseignement implements Serializable {
     @OneToMany(mappedBy = "uniteEnseignement")
     private List<ElementConstitutif> elementConstitutifs;
     
-    //bi-directional many-to-one association to Formation
-    @ManyToOne
-    @JoinColumn(name = "CODE_FORMATION")
-    private Formation formation;
+   //bi-directional many-to-one association to Formation
+  	@ManyToOne
+  	@JsonProperty(access = Access.WRITE_ONLY)
+  	private Formation formation;
 
     //bi-directional many-to-one association to Enseignant
     @ManyToOne
-    @JoinColumn(name = "NO_ENSEIGNANT")
+    @JsonProperty(access = Access.WRITE_ONLY)
     private Enseignant enseignant;
 
     
